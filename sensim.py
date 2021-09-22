@@ -13,14 +13,11 @@ def main(config):
         "elmo": ELMoCalculator,
         "bert": BERTCalculator,
     }
-
     if config.model not in models:
         logging.error(f"The model you chosen is not supported yet.")
         return
-
     if config.verbose:
         logging.info(f"Loading the corpus...")
-
     with open("corpus.txt", "r", encoding="utf-8") as corpus:
         sentences = [sentence.replace("\n", "") for sentence in corpus.readlines()]
         model = models[config.model](config, sentences)
@@ -30,13 +27,10 @@ def main(config):
                 f'You chose the "{config.model.upper()}" as a model.\n'
                 f'You chose the "{config.method.upper()}" as a method.'
             )
-
         model.calculate()
-
         if config.verbose:
             logging.info(f"Terminating the program...")
-
-
+    
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser()
@@ -46,7 +40,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--method",
         type=str,
-        default="cosine",
+        default="inner",
         choices=[
             "cosine",
             "manhattan",
@@ -55,8 +49,7 @@ if __name__ == "__main__":
             "ts-ss",
             "angular",
             "pairwise",
-            "pairwise-idf",
-        ],
+            "pairwise-idf",],
     )
     parser.add_argument("--verbose", type=bool, default=True)
     args = parser.parse_args()

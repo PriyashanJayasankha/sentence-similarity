@@ -1,5 +1,5 @@
 import logging
-
+import pyrebase
 from spacy.lang.en import English
 from spacy.tokenizer import Tokenizer
 from allennlp.modules.elmo import Elmo, batch_to_ids
@@ -49,10 +49,11 @@ class ELMoCalculator:
         embeddings = embeddings.detach().numpy()
 
         summed_embeddings = vector_summation(embeddings)
+        embeddingsx = model(['I am chiranthana from Agalawatta. I like phones.'])
         method = methods[self.method]
 
         if self.verbose:
             logging.info(f"Calculating similarity between sentences...")
 
-        similarity = method(summed_embeddings, summed_embeddings)
-        plot_similarity(self.sentences, similarity, self.method)
+        similarity = method(summed_embeddings, embeddingsx)
+        #plot_similarity(self.sentences, similarity, self.method)

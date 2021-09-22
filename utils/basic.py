@@ -55,15 +55,16 @@ def plot_similarity(sentences, similarity, method):
     )
 
     for (i, j), z in np.ndenumerate(similarity):
-        ax.text(j, i, "{:0.2f}".format(z), ha="center", va="center", fontsize=12)
+       return ("{:0.2f}".format(z))
+        #ax.text(j, i, "{:0.2f}".format(z), ha="center", va="center", fontsize=12)
 
-    ax.tick_params(labelsize=15)
-    ax.set_xticklabels([""] + sentences)
-    ax.set_yticklabels([""] + sentences)
+    #ax.tick_params(labelsize=15)
+    #ax.set_xticklabels([""] + sentences)
+    #ax.set_yticklabels([""] + sentences)
 
-    ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
-    ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
-    ax.set_title(f"Sentence Similarity using {method.upper()}")
+    #ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
+    #ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
+    #ax.set_title(f"Sentence Similarity using {method.upper()}")
 
-    plt.show()
-    plt.close()
+    #plt.show()
+    #plt.close()
