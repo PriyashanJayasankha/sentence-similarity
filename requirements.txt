@@ -1,5 +1,7 @@
 allennlp
+allennlp-models
 tensorflow_hub
+tensorflow
 sentence-transformers
 bert_score
 pyrebase4
