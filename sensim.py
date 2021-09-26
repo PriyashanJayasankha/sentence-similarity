@@ -8,6 +8,8 @@ from models.use_bert import BERTCalculator
 
 
 def main(config):
+    config.model = "bert"
+    config.method = "cosine"
     models = {
         "use": USECalculator,
         "elmo": ELMoCalculator,
