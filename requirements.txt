@@ -1,3 +1,5 @@
+tensorflow
+pytorch
 allennlp
 allennlp-models
 tensorflow_hub
